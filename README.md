@@ -12,15 +12,18 @@ The game gives feedback for each guessed letter so the player can use the clues 
 
 ### Current
 
+- Project setup
+- README documentation
+- Git version control
+
+### Planned
+
 - Guess a five-letter word
 - Limited number of attempts
 - Letter-by-letter feedback
 - On-screen keyboard
 - Win and game-over messages
 - Word data stored in JSON
-
-### Planned
-
 - Daily word
 - Streak system
 - Statistics
@@ -55,6 +58,7 @@ The game gives feedback for each guessed letter so the player can use the clues 
 
 ```text
 SorenWordle/
+├── .gitignore
 └── README.md
 ```
 
@@ -69,10 +73,6 @@ SorenWordle/
 7. Win and game-over system
 8. Testing and improvements
 9. Additional features
-
-## Future Features
-
-SorenWordle will gradually be expanded with additional gameplay, customization, statistics, and accessibility features.
 
 ## Author
 
