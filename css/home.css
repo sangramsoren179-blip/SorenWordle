@@ -1,0 +1,22 @@
+#home {
+    text-align: center;
+}
+
+#home button {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    padding: var(--spacing-medium) var(--spacing-large);
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-medium);
+}
+
+#home h1 {
+    font-size: var(--font-size-title);
+    margin-bottom: var(--spacing-medium);
+}
+
+#home p {
+    font-size: var(--font-size-description);
+    margin-bottom: var(--spacing-large);
+}

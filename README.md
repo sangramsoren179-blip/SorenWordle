@@ -8,6 +8,32 @@ SorenWordle is a simple word guessing game where the player tries to guess a hid
 
 The game gives feedback for each guessed letter so the player can use the clues to find the correct word.
 
+## Project Structure
+
+```text
+SorenWordle/
+├── css/
+│   ├── base.css       A
+│   ├── home.css       A
+│   ├── reset.css      A
+│   └── variables.css  A
+├── .gitignore
+├── index.html         A
+└── README.md          M
+```
+
+## Status
+
+### Added (A)
+- css/base.css
+- css/home.css
+- css/reset.css
+- css/variables.css
+- index.html
+
+### Modified (M)
+- README.md
+
 ## Features
 
 ### Current
@@ -15,6 +41,7 @@ The game gives feedback for each guessed letter so the player can use the clues 
 - Project setup
 - README documentation
 - Git version control
+- Home screen structure and styling
 
 ### Planned
 
@@ -49,18 +76,14 @@ The game gives feedback for each guessed letter so the player can use the clues 
 
 ## Technologies
 
+### Currently Used
 - HTML
 - CSS
+- Git
+
+### Planned
 - JavaScript
 - JSON
-
-## Project Structure
-
-```text
-SorenWordle/
-├── .gitignore
-└── README.md
-```
 
 ## Development Plan
 
