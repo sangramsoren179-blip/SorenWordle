@@ -1,0 +1,103 @@
+#game {
+    text-align: center;
+    width: 100%;
+    align-self: stretch;
+}
+
+#game h1 {
+    font-size: var(--font-size-title);
+    margin-bottom: var(--spacing-medium);
+}
+
+#game p {
+    font-size: var(--font-size-description);
+    margin-bottom: var(--spacing-large);
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-small);
+    width: min(300px, 90vw);
+    margin: 0 auto var(--spacing-large);
+}
+
+.grid-row {
+    display: contents;
+}
+
+.grid-tile {
+    aspect-ratio: 1;
+    border: 2px solid var(--color-border);
+    background-color: var(--color-surface);
+}
+
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+    width: min(500px, 100%);
+    margin: 0 auto;
+    padding: 0 var(--spacing-small);
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.key {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    padding: 0 2px;
+    border: none;
+    border-radius: var(--radius-small);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-medium);
+}
+
+.key-wide {
+    flex: 1.5;
+    font-size: 12px;
+}
+
+#game-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+#game-navbar h1 {
+    font-size: var(--font-size-title);
+    margin-bottom: 0;
+}
+
+#home-button {
+    position: absolute;
+    left: var(--spacing-medium);
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 32px;
+    cursor: pointer;
+}
+
+#home-button img {
+    width: 32px;
+    height: 32px;
+}
+
+#game-message {
+    min-height: 24px;
+    margin-bottom: var(--spacing-medium);
+    font-size: 14px;
+}

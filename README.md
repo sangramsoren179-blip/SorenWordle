@@ -6,14 +6,18 @@ SorenWordle is a Wordle-inspired word guessing game built using HTML, CSS, JavaS
 
 SorenWordle is a simple word guessing game where the player tries to guess a hidden five-letter word within a limited number of attempts.
 
-The game gives feedback for each guessed letter so the player can use the clues to find the correct word.
+The game is being developed to provide feedback for each guessed letter, helping players use the clues to find the hidden word.
 
 ## Project Structure
 
 ```text
 SorenWordle/
+├── assets/
+│   └── icons/
+│       └── back-button.svg
 ├── css/
 │   ├── base.css
+│   ├── game.css
 │   ├── home.css
 │   ├── reset.css
 │   └── variables.css
@@ -29,10 +33,12 @@ SorenWordle/
 This section lists file changes for the current development update.
 
 ### Added (A)
-- js/main.js
+- assets/icons/back-button.svg
+- css/game.css
 
 ### Modified (M)
 - index.html
+- js/main.js
 - README.md
 
 ## Features
@@ -44,14 +50,17 @@ This section lists file changes for the current development update.
 - Git version control
 - Home screen structure and styling
 - Play button to open the game screen
-- Home button to return to the home screen
+- Back button to return to the home screen
+- Game interface with navigation bar
+- Dynamically generated 6 × 5 game grid
+- Dynamically generated on-screen keyboard
+- Feedback message element
 
 ### Planned
 
 - Guess a five-letter word
 - Limited number of attempts
 - Letter-by-letter feedback
-- On-screen keyboard
 - Win and game-over messages
 - Word data stored in JSON
 - Daily word

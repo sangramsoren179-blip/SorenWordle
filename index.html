@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
     <main>
@@ -21,9 +22,21 @@
         </section>
         
         <section id="game" hidden>
-            <h1>SorenWordle</h1>
+            <nav id="game-navbar">
+                <button id="home-button" type="button" aria-label="Go back to home">
+                    <img src="assets/icons/back-button.svg" alt="">
+                </button>
+        
+                <h1>SorenWordle</h1>
+            </nav>
+        
             <p>Guess the hidden word!</p>
-            <button id="home-button" type="button">Home</button>
+        
+            <div id="game-grid" aria-label="Word guessing grid"></div>
+        
+            <p id="game-message" role="status" aria-live="polite"></p>
+            
+            <div id="keyboard" aria-label="On-screen keyboard"></div>
         </section>
     </main>
     
