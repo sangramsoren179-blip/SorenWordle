@@ -13,25 +13,26 @@ The game gives feedback for each guessed letter so the player can use the clues 
 ```text
 SorenWordle/
 ├── css/
-│   ├── base.css       A
-│   ├── home.css       A
-│   ├── reset.css      A
-│   └── variables.css  A
+│   ├── base.css
+│   ├── home.css
+│   ├── reset.css
+│   └── variables.css
+├── js/
+│   └── main.js
 ├── .gitignore
-├── index.html         A
-└── README.md          M
+├── index.html
+└── README.md
 ```
 
 ## Status
 
+This section lists file changes for the current development update.
+
 ### Added (A)
-- css/base.css
-- css/home.css
-- css/reset.css
-- css/variables.css
-- index.html
+- js/main.js
 
 ### Modified (M)
+- index.html
 - README.md
 
 ## Features
@@ -42,6 +43,8 @@ SorenWordle/
 - README documentation
 - Git version control
 - Home screen structure and styling
+- Play button to open the game screen
+- Home button to return to the home screen
 
 ### Planned
 
@@ -61,7 +64,7 @@ SorenWordle/
 - Difficulty levels
 - Support for different word lengths
 
-## Game Rules
+## Planned Game Rules
 
 1. The game selects a hidden five-letter word.
 2. The player enters a five-letter guess.
@@ -79,16 +82,16 @@ SorenWordle/
 ### Currently Used
 - HTML
 - CSS
+- JavaScript
 - Git
 
 ### Planned
-- JavaScript
 - JSON
 
 ## Development Plan
 
-1. README
-2. Home page
+1. Project setup and documentation
+2. Home page and navigation
 3. Game interface
 4. Word data
 5. Game logic
