@@ -25,6 +25,12 @@
     aspect-ratio: 1;
     border: 2px solid var(--color-border);
     background-color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 32px;
+    font-weight: bold;
 }
 
 #keyboard {

@@ -1,12 +1,10 @@
 # SorenWordle
 
-SorenWordle is a Wordle-inspired word guessing game built using HTML, CSS, JavaScript, and JSON.
+SorenWordle is a Wordle-inspired word guessing game being developed using HTML, CSS, and JavaScript, with JSON planned for word data.
 
 ## About
 
-SorenWordle is a simple word guessing game where the player tries to guess a hidden five-letter word within a limited number of attempts.
-
-The game is being developed to provide feedback for each guessed letter, helping players use the clues to find the hidden word.
+SorenWordle is a five-letter word guessing game in development. Players will try to find a hidden word within a limited number of attempts, using feedback on each guessed letter.
 
 ## Project Structure
 
@@ -24,6 +22,7 @@ SorenWordle/
 ├── js/
 │   ├── dom.js
 │   ├── grid.js
+│   ├── input.js
 │   ├── keyboard.js
 │   ├── main.js
 │   └── navigation.js
@@ -37,16 +36,14 @@ SorenWordle/
 This section lists file changes for the current development update.
 
 ### Added (A)
-- js/dom.js
-- js/grid.js
-- js/keyboard.js
-- js/navigation.js
+- `js/input.js`
 
 ### Modified (M)
-- css/game.css
-- index.html
-- js/main.js
-- README.md
+- `README.md`
+- `css/game.css`
+- `js/grid.js`
+- `js/keyboard.js`
+- `js/main.js`
 
 ## Features
 
@@ -62,11 +59,14 @@ This section lists file changes for the current development update.
 - Dynamically generated 6 × 5 game grid
 - Dynamically generated on-screen keyboard
 - Feedback message element
+- Letter input using the on-screen keyboard
+- Backspace to remove the most recently entered letter
+- Enter key handling and progression between guess rows
 
 ### Planned
 
-- Guess a five-letter word
-- Limited number of attempts
+- Hidden-word selection
+- Guess validation against the word list
 - Letter-by-letter feedback
 - Win and game-over messages
 - Word data stored in JSON
@@ -109,9 +109,9 @@ This section lists file changes for the current development update.
 1. Project setup and documentation
 2. Home page and navigation
 3. Game interface
-4. Word data
-5. Game logic
-6. Keyboard interaction
+4. Basic keyboard interaction
+5. Word data and guess validation
+6. Letter-by-letter feedback
 7. Win and game-over system
 8. Testing and improvements
 9. Additional features

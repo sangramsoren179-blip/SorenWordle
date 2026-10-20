@@ -13,6 +13,8 @@ export function createKeyboard(keyboard) {
             const key = document.createElement("button");
             key.type = "button";
             key.textContent = letter === "BACKSPACE" ? "BACK" : letter;
+            key.dataset.key = letter;
+            
             key.classList.add("key");
 
             if (letter === "ENTER" || letter === "BACKSPACE") {

@@ -6,7 +6,8 @@ export function createGrid(gameGrid) {
         for (let column = 0; column < 5; column++) {
             const tile = document.createElement("div");
             tile.classList.add("grid-tile");
-
+            tile.dataset.row = row;
+            tile.dataset.column = column;
             gridRow.appendChild(tile);
         }
 

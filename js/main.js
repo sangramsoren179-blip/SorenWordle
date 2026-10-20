@@ -2,6 +2,7 @@ import { getDOMElements } from "./dom.js";
 import { setupNavigation } from "./navigation.js";
 import { createGrid } from "./grid.js";
 import { createKeyboard } from "./keyboard.js";
+import { setupInput } from "./input.js";
 
 const {
     home,
@@ -20,7 +21,6 @@ setupNavigation({
     homeButton,
     gameMessage
 });
-
 createGrid(gameGrid);
-
 createKeyboard(keyboard);
+setupInput(gameGrid, keyboard, gameMessage);
