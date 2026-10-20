@@ -27,19 +27,19 @@
                     <img src="assets/icons/back-button.svg" alt="">
                 </button>
         
-                <h1>SorenWordle</h1>
+                <h2>SorenWordle</h2>
             </nav>
         
             <p>Guess the hidden word!</p>
         
-            <div id="game-grid" aria-label="Word guessing grid"></div>
+            <div id="game-grid" role="group" aria-label="Word guessing grid"></div>
         
             <p id="game-message" role="status" aria-live="polite"></p>
             
-            <div id="keyboard" aria-label="On-screen keyboard"></div>
+            <div id="keyboard" role="group" aria-label="On-screen keyboard"></div>
         </section>
     </main>
     
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

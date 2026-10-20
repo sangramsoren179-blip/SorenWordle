@@ -22,7 +22,11 @@ SorenWordle/
 │   ├── reset.css
 │   └── variables.css
 ├── js/
-│   └── main.js
+│   ├── dom.js
+│   ├── grid.js
+│   ├── keyboard.js
+│   ├── main.js
+│   └── navigation.js
 ├── .gitignore
 ├── index.html
 └── README.md
@@ -33,10 +37,13 @@ SorenWordle/
 This section lists file changes for the current development update.
 
 ### Added (A)
-- assets/icons/back-button.svg
-- css/game.css
+- js/dom.js
+- js/grid.js
+- js/keyboard.js
+- js/navigation.js
 
 ### Modified (M)
+- css/game.css
 - index.html
 - js/main.js
 - README.md
