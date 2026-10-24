@@ -27,7 +27,8 @@ SorenWordle/
 │   ├── input.js
 │   ├── keyboard.js
 │   ├── main.js
-│   └── navigation.js
+│   ├── navigation.js
+│   └── popup.js
 ├── .gitignore
 ├── index.html
 └── README.md
@@ -38,13 +39,16 @@ SorenWordle/
 This section tracks file changes for the current development update.
 
 ### Added (A)
-- `data/words.json` — stores the available five-letter words.
+- `js/popup.js` — handles displaying and hiding the game result popup.
 
 ### Modified (M)
-- `README.md` — documents the current features and development progress.
-- `css/game.css` — styles letter feedback for the grid and keyboard.
-- `js/input.js` — handles guess validation, letter feedback, keyboard colors, and game-ending conditions.
-- `js/main.js` — loads word data and selects a random hidden word.
+- `README.md` — updates the file change history and documents the latest development progress.
+- `css/game.css` — adds styling for the result popup, its overlay, and its buttons.
+- `index.html` — adds the result popup structure, result details, and three action buttons.
+- `js/dom.js` — adds DOM references for the popup elements and action buttons.
+- `js/input.js` — connects game-ending conditions to the result popup and resets the game state for new games.
+- `js/main.js` — connects the popup actions to game restarting and navigation.
+- `js/navigation.js` — keeps the home and game screens synchronized when starting a game or returning home.
 
 ## Features
 
@@ -72,6 +76,11 @@ This section tracks file changes for the current development update.
 - Keyboard feedback priority: correct over present over absent
 - Win message when the hidden word is guessed correctly
 - Game-over message when all six attempts are used
+- Result popup displayed immediately after winning or losing
+- Hidden word revealed in the result popup
+- Home button in the popup to return to the home screen
+- Cancel button to close the popup while keeping the completed game visible
+- Play Again button to start a new game with a newly selected hidden word
 
 ### Planned
 
@@ -97,6 +106,8 @@ This section tracks file changes for the current development update.
 5. The player continues guessing until:
    - The word is guessed correctly, or
    - All attempts are used.
+6. After the game ends, a result popup displays the outcome and reveals the hidden word.
+7. The player can return home, close the popup to view the completed game, or start a new game.
 
 ## Technologies
 

@@ -4,13 +4,18 @@ export function setupNavigation(elements) {
         game,
         playButton,
         homeButton,
-        gameMessage
+        gameMessage,
+        startGame
     } = elements;
 
     playButton.addEventListener("click", function () {
+        if (!startGame) {
+            return;
+        }
+    
+        startGame();
         home.hidden = true;
         game.hidden = false;
-        gameMessage.textContent = "Start guessing!";
     });
 
     homeButton.addEventListener("click", function () {

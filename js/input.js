@@ -1,7 +1,26 @@
-export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWords) {
+export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWords, showPopup) {
     let currentRow = 0;
     let currentColumn = 0;
     let gameOver = false;
+    
+    function resetGame(newHiddenWord) {
+        hiddenWord = newHiddenWord;
+    
+        currentRow = 0;
+        currentColumn = 0;
+        gameOver = false;
+    
+        gameGrid.querySelectorAll(".grid-tile").forEach(function (tile) {
+            tile.textContent = "";
+            tile.classList.remove("correct", "present", "absent");
+        });
+    
+        keyboard.querySelectorAll(".key").forEach(function (key) {
+            key.classList.remove("correct", "present", "absent");
+        });
+    
+        gameMessage.textContent = "Start guessing!";
+    }
 
     keyboard.addEventListener("click", function (event) {
         const key = event.target.closest("button");
@@ -94,6 +113,12 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                     if (guess === hiddenWord) {
                         gameOver = true;
                         gameMessage.textContent = "Congratulations! You guessed the word!";
+                        
+                        showPopup(
+                            "You Won!",
+                            "Congratulations! You guessed the word!",
+                            hiddenWord
+                        );
                     } else if (currentRow < 5) {
                         currentRow++;
                         currentColumn = 0;
@@ -101,6 +126,12 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                     } else {
                         gameOver = true;
                         gameMessage.textContent = `Game over! The word was ${hiddenWord}.`;
+                    
+                        showPopup(
+                            "Game Over!",
+                            "You used all six attempts.",
+                            hiddenWord
+                        );
                     }
                 }
             } else {
@@ -129,4 +160,8 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
             currentColumn++;
         }
     });
+
+    return {
+        resetGame
+    };
 }
