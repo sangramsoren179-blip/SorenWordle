@@ -20,3 +20,34 @@
     font-size: var(--font-size-description);
     margin-bottom: var(--spacing-large);
 }
+
+#word-length-selector {
+    margin-bottom: var(--spacing-large);
+}
+
+#word-length-selector > p {
+    margin-bottom: var(--spacing-medium);
+}
+
+#word-length-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-medium);
+}
+
+#home #word-length-buttons button {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-small);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-medium);
+}
+
+#home #word-length-buttons button.selected {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: bold;
+}

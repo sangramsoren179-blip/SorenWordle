@@ -10,6 +10,7 @@ const elements = getDOMElements();
 let wordData;
 let input;
 let hiddenWord;
+let wordLength = 5;
 
 const {
     home,
@@ -36,6 +37,9 @@ function startGame() {
     hiddenWord = possibleWords.length > 0
         ? possibleWords[Math.floor(Math.random() * possibleWords.length)]
         : wordData[Math.floor(Math.random() * wordData.length)];
+    
+    createGrid(gameGrid, wordLength);
+    gameGrid.style.setProperty("--word-length", wordLength);
 
     if (!input) {
         input = setupInput(
@@ -47,7 +51,7 @@ function startGame() {
             popup.showPopup
         );
     } else {
-        input.resetGame(hiddenWord);
+        input.resetGame(hiddenWord, wordData);
     }
 
     popup.hidePopup();
@@ -63,7 +67,8 @@ setupNavigation({
     startGame
 });
 
-createGrid(gameGrid);
+createGrid(gameGrid, wordLength);
+gameGrid.style.setProperty("--word-length", wordLength);
 createKeyboard(keyboard);
 
 fetch("../data/words.json")
@@ -74,7 +79,41 @@ fetch("../data/words.json")
         return response.json();
     })
     .then(function(data) {
-        wordData = data.words;
+        wordData = data.wordsByLength[String(wordLength)];
+        
+        const availableLengths = Object.keys(data.wordsByLength);
+
+        availableLengths.forEach(function (length) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = length;
+            button.dataset.length = length;
+            
+            const isSelected = Number(length) === wordLength;
+
+            button.classList.toggle("selected", isSelected);
+            button.setAttribute("aria-pressed", String(isSelected));
+
+            elements.wordLengthButtons.appendChild(button);
+        });
+        
+        elements.wordLengthButtons.addEventListener("click", function (event) {
+            const button = event.target.closest("button");
+        
+            if (!button) {
+                return;
+            }
+        
+            wordLength = Number(button.dataset.length);
+            wordData = data.wordsByLength[String(wordLength)];
+            
+            elements.wordLengthButtons.querySelectorAll("button").forEach(function (item) {
+            const isSelected = item === button;
+        
+            item.classList.toggle("selected", isSelected);
+            item.setAttribute("aria-pressed", String(isSelected));
+        });
+        });
         
         elements.popupHomeButton.addEventListener("click", function () {
             popup.hidePopup();

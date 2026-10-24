@@ -11,7 +11,7 @@
 
 #game-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(var(--word-length, 5), minmax(0, 1fr));
     gap: var(--spacing-small);
     width: min(300px, 90vw);
     margin: 0 auto var(--spacing-large);
@@ -22,14 +22,15 @@
 }
 
 .grid-tile {
-    aspect-ratio: 1;
+    height: clamp(24px, 5vh, 38px);
+    min-width: 0;
     border: 2px solid var(--color-border);
     background-color: var(--color-surface);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-text);
-    font-size: 32px;
+    font-size: clamp(14px, 5vw, 32px);
     font-weight: bold;
 }
 

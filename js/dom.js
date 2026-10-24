@@ -3,6 +3,7 @@ export function getDOMElements() {
         home: document.getElementById("home"),
         game: document.getElementById("game"),
         playButton: document.getElementById("play-button"),
+        wordLengthButtons: document.getElementById("word-length-buttons"),
         homeButton: document.getElementById("home-button"),
         gameMessage: document.getElementById("game-message"),
         gameGrid: document.getElementById("game-grid"),

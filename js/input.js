@@ -3,8 +3,9 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
     let currentColumn = 0;
     let gameOver = false;
     
-    function resetGame(newHiddenWord) {
+    function resetGame(newHiddenWord, newValidWords) {
         hiddenWord = newHiddenWord;
+        validWords = newValidWords;
     
         currentRow = 0;
         currentColumn = 0;
@@ -36,10 +37,10 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
         }
         
         if (value === "ENTER") {
-            if (currentColumn === 5) {
+            if (currentColumn === hiddenWord.length) {
                 let guess = "";
         
-                for (let column = 0; column < 5; column++) {
+                for (let column = 0; column < hiddenWord.length; column++) {
                     const tile = gameGrid.querySelector(
                         `.grid-tile[data-row="${currentRow}"][data-column="${column}"]`
                     );
@@ -50,17 +51,17 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                 if (!validWords.includes(guess)) {
                     gameMessage.textContent = "Invalid word. Try again!";
                 } else {
-                    const feedback = Array(5).fill("absent");
+                    const feedback = Array(hiddenWord.length).fill("absent");
                     const remainingLetters = hiddenWord.split("");
                 
-                    for (let column = 0; column < 5; column++) {
+                    for (let column = 0; column < hiddenWord.length; column++) {
                         if (guess[column] === hiddenWord[column]) {
                             feedback[column] = "correct";
                             remainingLetters[column] = null;
                         }
                     }
                 
-                    for (let column = 0; column < 5; column++) {
+                    for (let column = 0; column < hiddenWord.length; column++) {
                         if (feedback[column] === "correct") {
                             continue;
                         }
@@ -73,7 +74,7 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                         }
                     }
                 
-                    for (let column = 0; column < 5; column++) {
+                    for (let column = 0; column < hiddenWord.length; column++) {
                         const tile = gameGrid.querySelector(
                             `.grid-tile[data-row="${currentRow}"][data-column="${column}"]`
                         );
@@ -81,7 +82,7 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                         tile.classList.add(feedback[column]);
                     }
                     
-                    for (let column = 0; column < 5; column++) {
+                    for (let column = 0; column < hiddenWord.length; column++) {
                         const letter = guess[column];
                         const key = keyboard.querySelector(
                             `.key[data-key="${letter}"]`
@@ -135,7 +136,7 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                     }
                 }
             } else {
-                gameMessage.textContent = "Enter five letters first.";
+                gameMessage.textContent = `Enter ${hiddenWord.length} letters first.`;
             }
         
             return;
@@ -151,7 +152,7 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
         
                 tile.textContent = "";
             }
-        } else if (value.length === 1 && currentColumn < 5) {
+        } else if (value.length === 1 && currentColumn < hiddenWord.length) {
             const tile = gameGrid.querySelector(
                 `.grid-tile[data-row="${currentRow}"][data-column="${currentColumn}"]`
             );
