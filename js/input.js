@@ -1,4 +1,4 @@
-export function setupInput(gameGrid, keyboard, gameMessage) {
+export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWords) {
     let currentRow = 0;
     let currentColumn = 0;
     let gameOver = false;
@@ -18,13 +18,90 @@ export function setupInput(gameGrid, keyboard, gameMessage) {
         
         if (value === "ENTER") {
             if (currentColumn === 5) {
-                if (currentRow < 5) {
-                    currentRow++;
-                    currentColumn = 0;
-                    gameMessage.textContent = "Guess submitted!";
+                let guess = "";
+        
+                for (let column = 0; column < 5; column++) {
+                    const tile = gameGrid.querySelector(
+                        `.grid-tile[data-row="${currentRow}"][data-column="${column}"]`
+                    );
+        
+                    guess += tile.textContent;
+                }
+        
+                if (!validWords.includes(guess)) {
+                    gameMessage.textContent = "Invalid word. Try again!";
                 } else {
-                    gameOver = true;
-                    gameMessage.textContent = "No more attempts left.";
+                    const feedback = Array(5).fill("absent");
+                    const remainingLetters = hiddenWord.split("");
+                
+                    for (let column = 0; column < 5; column++) {
+                        if (guess[column] === hiddenWord[column]) {
+                            feedback[column] = "correct";
+                            remainingLetters[column] = null;
+                        }
+                    }
+                
+                    for (let column = 0; column < 5; column++) {
+                        if (feedback[column] === "correct") {
+                            continue;
+                        }
+                
+                        const letterIndex = remainingLetters.indexOf(guess[column]);
+                
+                        if (letterIndex !== -1) {
+                            feedback[column] = "present";
+                            remainingLetters[letterIndex] = null;
+                        }
+                    }
+                
+                    for (let column = 0; column < 5; column++) {
+                        const tile = gameGrid.querySelector(
+                            `.grid-tile[data-row="${currentRow}"][data-column="${column}"]`
+                        );
+                
+                        tile.classList.add(feedback[column]);
+                    }
+                    
+                    for (let column = 0; column < 5; column++) {
+                        const letter = guess[column];
+                        const key = keyboard.querySelector(
+                            `.key[data-key="${letter}"]`
+                        );
+                    
+                        const currentFeedback = key.classList.contains("correct")
+                            ? "correct"
+                            : key.classList.contains("present")
+                                ? "present"
+                                : key.classList.contains("absent")
+                                    ? "absent"
+                                    : null;
+                    
+                        const priority = {
+                            absent: 1,
+                            present: 2,
+                            correct: 3
+                        };
+                    
+                        if (
+                            !currentFeedback ||
+                            priority[feedback[column]] > priority[currentFeedback]
+                        ) {
+                            key.classList.remove("absent", "present", "correct");
+                            key.classList.add(feedback[column]);
+                        }
+                    }
+                
+                    if (guess === hiddenWord) {
+                        gameOver = true;
+                        gameMessage.textContent = "Congratulations! You guessed the word!";
+                    } else if (currentRow < 5) {
+                        currentRow++;
+                        currentColumn = 0;
+                        gameMessage.textContent = "Incorrect guess. Try again!";
+                    } else {
+                        gameOver = true;
+                        gameMessage.textContent = `Game over! The word was ${hiddenWord}.`;
+                    }
                 }
             } else {
                 gameMessage.textContent = "Enter five letters first.";

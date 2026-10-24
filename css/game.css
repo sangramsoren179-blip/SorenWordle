@@ -33,6 +33,24 @@
     font-weight: bold;
 }
 
+.grid-tile.correct {
+    background-color: #538d4e;
+    border-color: #538d4e;
+    color: #ffffff;
+}
+
+.grid-tile.present {
+    background-color: #b59f3b;
+    border-color: #b59f3b;
+    color: #ffffff;
+}
+
+.grid-tile.absent {
+    background-color: #787c7e;
+    border-color: #787c7e;
+    color: #ffffff;
+}
+
 #keyboard {
     display: flex;
     flex-direction: column;
@@ -63,6 +81,21 @@
 .key-wide {
     flex: 1.5;
     font-size: 12px;
+}
+
+.key.correct {
+    background-color: #538d4e;
+    color: #ffffff;
+}
+
+.key.present {
+    background-color: #b59f3b;
+    color: #ffffff;
+}
+
+.key.absent {
+    background-color: #787c7e;
+    color: #ffffff;
 }
 
 #game-navbar {
