@@ -28,7 +28,8 @@ SorenWordle/
 │   ├── keyboard.js
 │   ├── main.js
 │   ├── navigation.js
-│   └── popup.js
+│   ├── popup.js
+│   └── wordValidator.js
 ├── .gitignore
 ├── index.html
 └── README.md
@@ -36,107 +37,110 @@ SorenWordle/
 
 ## Status
 
-This section tracks file changes for the current development update.
+This section records the files added, modified, or deleted in the current development update.
 
 ### Added (A)
-- None.
+- `js/wordValidator.js` — validates the structure and contents of `data/words.json`, checking word lengths, lowercase formatting, duplicates, and alphabetical order.
 
 ### Modified (M)
-- `README.md` — documents the dynamic word-length feature, updated game rules, and current development status.
-- `css/game.css` — adjusts tile dimensions for different word lengths and mobile screens.
-- `css/home.css` — styles the word-length selector and distinguishes selected and unselected buttons.
-- `index.html` — contains the word-length selector structure.
-- `data/words.json` — organizes words by length and provides words for testing different grid sizes.
-- `js/dom.js` — provides a DOM reference for the word-length buttons.
-- `js/grid.js` — generates the grid according to the selected word length.
-- `js/input.js` — supports guesses and game resets using the selected word length.
-- `js/main.js` — generates word-length buttons, updates the selected length, and loads the matching word list.
+- `README.md` — updates project documentation and records the current development changes.
+- `data/words.json` — organizes words by length and supplies the word data used for validation and hidden-word selection.
+- `js/input.js` — handles letter input, guess validation, feedback, and resetting the game.
+- `js/main.js` — validates the word data and coordinates word selection, game setup, and game initialization.
 
 ## Features
 
-### Current
+### Implemented
 
-- Project setup
-- README documentation
-- Git version control
-- Home screen structure and styling
-- Play button to open the game screen
+#### Home and Navigation
+- Home screen with a Play button
 - Back button to return to the home screen
-- Game interface with navigation bar
-- Dynamically generated six-row game grid
-- Support for selecting different word lengths
-- Word-length options generated from `data/words.json`
-- Visual distinction between selected and unselected word-length buttons
+- Word-length selector generated from `data/words.json`
+- Visual indication of the selected word length
+
+#### Game Interface
+- Dynamically generated six-row grid
 - Grid columns and tile dimensions adapt to the selected word length
 - Dynamically generated on-screen keyboard
 - Feedback message element
+
+#### Word Data and Validation
+- Word lists organized by length in `data/words.json`
+- Random hidden-word selection from the selected word-length list
+- Guess validation against the available word list
+- Word-data validation for structure, word length, lowercase formatting, duplicates, and alphabetical order
+
+#### Guessing and Feedback
 - Letter input using the on-screen keyboard
 - Backspace to remove the most recently entered letter
 - Enter key handling and progression between guess rows
-- Word data stored in `data/words.json`
-- Random selection of a hidden word from the selected word-length list
-- Guess validation against the available word list
-- Green, yellow, and gray feedback for guessed letters
-- Correct handling of repeated letters in guesses
-- Keyboard colors updated according to letter feedback
+- Green, yellow, and gray letter feedback
+- Correct handling of repeated letters
 - Keyboard feedback priority: correct over present over absent
+
+#### Game Results and Replay
 - Win message when the hidden word is guessed correctly
-- Game-over message when all six attempts are used
-- Result popup displayed immediately after winning or losing
-- Hidden word revealed in the result popup
-- Home button in the popup to return to the home screen
-- Cancel button to close the popup while keeping the completed game visible
+- Game-over message after six unsuccessful attempts
+- Result popup displaying the outcome and hidden word
+- Home button to return to the home screen
+- Cancel button to close the popup and view the completed game
 - Play Again button to start a new game with a newly selected hidden word
-- Words organized by length in `data/words.json`
+- Game reset clears previous guesses and keyboard feedback
 
 ### Planned
 
-- Daily word
+- Daily word challenge
 - Streak system
-- Statistics
-- Local storage
+- Statistics and game history
+- Local storage for saving game data
 - Animations
 - Sound effects
 - Dark mode
 - Difficulty levels
 
-## Planned Game Rules
+## Game Rules
 
 1. The player selects an available word length on the home screen.
-2. The game selects a hidden word of the chosen length.
+2. The game selects a random hidden word from the list for that length.
 3. The player enters a guess containing the required number of letters.
-4. The game checks the guess against the word list for the selected length.
+4. The game checks whether the guess belongs to the word list for the selected length.
 5. Each letter receives feedback:
-   - Green — correct letter in the correct position
-   - Yellow — correct letter in the wrong position
-   - Gray — letter is not in the word, or no additional occurrence is available
-6. The player continues guessing until:
-   - The word is guessed correctly, or
-   - All six attempts are used.
-7. After the game ends, a result popup displays the outcome and reveals the hidden word.
-8. The player can return home, close the popup to view the completed game, or start a new game.
+   - Green — the letter is correct and in the correct position.
+   - Yellow — the letter is in the hidden word but in a different position.
+   - Gray — the letter is absent from the word, or no additional occurrence is available.
+6. The player has up to six attempts to guess the hidden word.
+7. The game ends when the player guesses correctly or uses all six attempts.
+8. A result popup displays the outcome and reveals the hidden word.
+9. The player can return home, close the popup to view the completed game, or start a new game.
 
 ## Technologies
 
-### Currently Used
 - HTML
 - CSS
 - JavaScript
 - JSON
-- Git
+- Git for version control
 
 ## Development Plan
 
+### Completed
 1. Project setup and documentation
 2. Home page and navigation
-3. Game interface
-4. Basic keyboard interaction
-5. Word data and random hidden-word selection
+3. Game interface and dynamic grid
+4. Keyboard interaction and guess input
+5. Word data management and hidden-word selection
 6. Guess validation and letter-by-letter feedback
 7. Win and game-over system
-8. Testing and improvements
-9. Daily word and statistics features
-10. Additional enhancements and improvements
+8. Result popup and game reset
+9. Word-data validation
+
+### Upcoming
+1. Daily word challenge
+2. Statistics and streak tracking
+3. Local storage
+4. Animations and sound effects
+5. Dark mode and difficulty levels
+6. Additional testing and improvements
 
 ## Author
 

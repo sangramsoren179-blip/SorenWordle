@@ -1,46 +1,45 @@
 {
     "wordsByLength": {
         "4": [
-            "BOOK",
-            "GAME",
-            "WORD",
-            "PLAY",
-            "TREE",
-            "MOON",
-            "STAR",
-            "FISH",
-            "BALL",
-            "DOOR"
+            "ball",
+            "book",
+            "door",
+            "fish",
+            "game",
+            "moon",
+            "play",
+            "star",
+            "tree",
+            "word"
         ],
         "5": [
-            "APPLE",
-            "GRAPE",
-            "BRAIN",
-            "CHAIR",
-            "PLANT",
-            "TRAIN",
-            "HOUSE",
-            "WATER",
-            "LIGHT",
-            "SMILE"
+            "apple",
+            "brain",
+            "chair",
+            "grape",
+            "house",
+            "light",
+            "plant",
+            "smile",
+            "train",
+            "water"
         ],
         "6": [
-            "PLANET",
-            "SCHOOL",
-            "FRIEND",
-            "GARDEN",
-            "ORANGE",
-            "PUZZLE",
-            "BRIDGE",
-            "STREAM",
-            "POCKET",
-            "BOTTLE"
+            "bottle",
+            "bridge",
+            "friend",
+            "orange",
+            "planet",
+            "pocket",
+            "puzzle",
+            "school",
+            "stream"
         ],
         "2": [
-            "AT"
+            "at"
         ],
         "9": [
-            "SOMETHING"
+            "something"
         ]
     }
 }

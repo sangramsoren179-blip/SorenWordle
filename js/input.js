@@ -47,15 +47,17 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
         
                     guess += tile.textContent;
                 }
+                
+                const normalizedGuess = guess.toLowerCase();
         
-                if (!validWords.includes(guess)) {
+                if (!validWords.includes(normalizedGuess)) {
                     gameMessage.textContent = "Invalid word. Try again!";
                 } else {
                     const feedback = Array(hiddenWord.length).fill("absent");
                     const remainingLetters = hiddenWord.split("");
                 
                     for (let column = 0; column < hiddenWord.length; column++) {
-                        if (guess[column] === hiddenWord[column]) {
+                        if (normalizedGuess[column] === hiddenWord[column]) {
                             feedback[column] = "correct";
                             remainingLetters[column] = null;
                         }
@@ -66,7 +68,7 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                             continue;
                         }
                 
-                        const letterIndex = remainingLetters.indexOf(guess[column]);
+                        const letterIndex = remainingLetters.indexOf(normalizedGuess[column]);
                 
                         if (letterIndex !== -1) {
                             feedback[column] = "present";
@@ -111,14 +113,14 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                         }
                     }
                 
-                    if (guess === hiddenWord) {
+                    if (normalizedGuess === hiddenWord) {
                         gameOver = true;
                         gameMessage.textContent = "Congratulations! You guessed the word!";
                         
                         showPopup(
                             "You Won!",
                             "Congratulations! You guessed the word!",
-                            hiddenWord
+                            hiddenWord.toUpperCase()
                         );
                     } else if (currentRow < 5) {
                         currentRow++;
@@ -126,12 +128,12 @@ export function setupInput(gameGrid, keyboard, gameMessage, hiddenWord, validWor
                         gameMessage.textContent = "Incorrect guess. Try again!";
                     } else {
                         gameOver = true;
-                        gameMessage.textContent = `Game over! The word was ${hiddenWord}.`;
+                        gameMessage.textContent = `Game over! The word was ${hiddenWord.toUpperCase()}.`;
                     
                         showPopup(
                             "Game Over!",
                             "You used all six attempts.",
-                            hiddenWord
+                            hiddenWord.toUpperCase()
                         );
                     }
                 }

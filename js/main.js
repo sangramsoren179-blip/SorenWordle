@@ -4,6 +4,7 @@ import { createGrid } from "./grid.js";
 import { createKeyboard } from "./keyboard.js";
 import { setupInput } from "./input.js";
 import { setupPopup } from "./popup.js";
+import { validateWordData } from "./wordValidator.js";
 
 const elements = getDOMElements();
 
@@ -79,6 +80,12 @@ fetch("../data/words.json")
         return response.json();
     })
     .then(function(data) {
+        const errors = validateWordData(data);
+
+        if (errors.length > 0) {
+            alert("Problems found in words.json:\n\n" + errors.join("\n"));
+        }
+    
         wordData = data.wordsByLength[String(wordLength)];
         
         const availableLengths = Object.keys(data.wordsByLength);
