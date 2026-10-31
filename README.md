@@ -39,14 +39,9 @@ SorenWordle/
 
 This section records the files added, modified, or deleted in the current development update.
 
-### Added (A)
-- `js/wordValidator.js` — validates the structure and contents of `data/words.json`, checking word lengths, lowercase formatting, duplicates, and alphabetical order.
-
 ### Modified (M)
-- `README.md` — updates project documentation and records the current development changes.
-- `data/words.json` — organizes words by length and supplies the word data used for validation and hidden-word selection.
-- `js/input.js` — handles letter input, guess validation, feedback, and resetting the game.
-- `js/main.js` — validates the word data and coordinates word selection, game setup, and game initialization.
+- `README.md` — documents the responsive word-length selector and records the current development changes.
+- `css/home.css` — makes the word-length selector responsive by allowing buttons to wrap onto multiple rows.
 
 ## Features
 
@@ -56,6 +51,7 @@ This section records the files added, modified, or deleted in the current develo
 - Home screen with a Play button
 - Back button to return to the home screen
 - Word-length selector generated from `data/words.json`
+- Responsive word-length buttons that wrap onto multiple rows
 - Visual indication of the selected word length
 
 #### Game Interface
@@ -133,6 +129,7 @@ This section records the files added, modified, or deleted in the current develo
 7. Win and game-over system
 8. Result popup and game reset
 9. Word-data validation
+10. Responsive home-screen word-length selector
 
 ### Upcoming
 1. Daily word challenge
