@@ -40,8 +40,8 @@ SorenWordle/
 This section records the files added, modified, or deleted in the current development update.
 
 ### Modified (M)
-- `README.md` — documents the responsive word-length selector and records the current development changes.
-- `css/home.css` — makes the word-length selector responsive by allowing buttons to wrap onto multiple rows.
+- `README.md` — documents the latest word database update and records the current development changes.
+- `data/words.json` — updates the word database with the latest vocabulary collection, organized by word length.
 
 ## Features
 
@@ -65,6 +65,7 @@ This section records the files added, modified, or deleted in the current develo
 - Random hidden-word selection from the selected word-length list
 - Guess validation against the available word list
 - Word-data validation for structure, word length, lowercase formatting, duplicates, and alphabetical order
+- Expanded vocabulary collection covering multiple word lengths
 
 #### Guessing and Feedback
 - Letter input using the on-screen keyboard
